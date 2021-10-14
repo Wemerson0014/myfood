@@ -15,6 +15,7 @@
         <com.google.android.material.button.MaterialButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/MyFoodButtonStyle"
             android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
             android:text="Rua ABC"
             android:textSize="13sp" />
@@ -33,6 +34,7 @@
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/add_tab"
         app:tabMode="auto"
+        app:tabTextAppearance="@style/MyFoodTabTextAppearance"
         app:tabIndicatorFullWidth="false"
         app:tabIndicatorColor="@color/red"
         app:tabSelectedTextColor="@color/red"
