@@ -7,7 +7,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 class TabViewPagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
 
     val tabs = arrayOf(R.string.restaurants, R.string.marketplaces, R.string.drinks)
-    val fragments = arrayOf(MarketPlaceFragment(), MarketPlaceFragment(), MarketPlaceFragment())
+    val fragments = arrayOf(RestaurantFragment(), MarketPlaceFragment(), MarketPlaceFragment())
 
     override fun getItemCount(): Int = fragments.size
 
