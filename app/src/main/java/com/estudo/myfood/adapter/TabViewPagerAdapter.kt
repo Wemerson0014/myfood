@@ -1,8 +1,11 @@
-package com.estudo.myfood
+package com.estudo.myfood.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.estudo.myfood.R
+import com.estudo.myfood.fragments.MarketPlaceFragment
+import com.estudo.myfood.fragments.RestaurantFragment
 
 class TabViewPagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
 

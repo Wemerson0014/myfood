@@ -1,4 +1,4 @@
-package com.estudo.myfood
+package com.estudo.myfood.models
 
 data class Banner(
     val id: Int,
