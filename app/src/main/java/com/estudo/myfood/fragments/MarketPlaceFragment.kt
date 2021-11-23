@@ -1,4 +1,4 @@
-package com.estudo.myfood
+package com.estudo.myfood.fragments
 
 import androidx.fragment.app.Fragment
 

@@ -2,6 +2,7 @@ package com.estudo.myfood
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.estudo.myfood.adapter.TabViewPagerAdapter
 import com.estudo.myfood.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayoutMediator
 

@@ -1,9 +1,10 @@
-package com.estudo.myfood
+package com.estudo.myfood.views
 
 import android.graphics.drawable.GradientDrawable
 import android.view.ViewGroup
 import co.tiagoaguiar.atway.ui.adapter.ATViewHolder
 import com.estudo.myfood.databinding.CategoryItemBinding
+import com.estudo.myfood.models.Category
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import java.lang.Exception

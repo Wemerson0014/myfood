@@ -1,4 +1,4 @@
-package com.estudo.myfood
+package com.estudo.myfood.fragments
 
 import android.os.Bundle
 import android.view.View
@@ -10,7 +10,16 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import co.tiagoaguiar.atway.ui.adapter.ATAdapter
+import com.estudo.myfood.FilterItem
+import com.estudo.myfood.R
 import com.estudo.myfood.databinding.FragmentRestaurantBinding
+import com.estudo.myfood.models.Banner
+import com.estudo.myfood.models.Category
+import com.estudo.myfood.models.Shop
+import com.estudo.myfood.toChip
+import com.estudo.myfood.views.BannerView
+import com.estudo.myfood.views.CategoryView
+import com.estudo.myfood.views.ShopView
 
 class RestaurantFragment : Fragment(R.layout.fragment_restaurant) {
 
@@ -21,6 +30,7 @@ class RestaurantFragment : Fragment(R.layout.fragment_restaurant) {
 
     private val categoryAdapter = ATAdapter({ CategoryView(it) })
     private val bannerAdapter = ATAdapter({ BannerView(it) })
+    private val shopAdapter = ATAdapter({ ShopView(it) })
 
     private var filters = arrayOf(
         FilterItem(0, "Ordernar", closeIcon = R.drawable.ic_baseline_keyboard_arrow_down_24),
@@ -90,6 +100,13 @@ class RestaurantFragment : Fragment(R.layout.fragment_restaurant) {
             )
         )
 
+        shopAdapter.items = arrayListOf(Shop(1, "https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/201910292243_94aaf166-84cc-4ebf-a35d-d223be34d01f.png","Coco Bambu"),
+        Shop(2, "https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/d4a3984f-2b73-4f46-99df-1d6bc79ff293/202001031317_CXpO_i.png", "China In Box"),
+        Shop(3, "https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/201801231937__HABIB_VERDE.jpg", "Habib's"),
+        Shop(4, "https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/201906182008_2b157a73-7564-4733-94c1-8d0376e7bb39.png", "Outback"),
+        Shop(5, "https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/Logo%20McDonald_MCDON_DRIV15.jpg", "MCdonalds")
+        )
+
         binding = FragmentRestaurantBinding.bind(view)
         binding?.let {
 
@@ -99,6 +116,10 @@ class RestaurantFragment : Fragment(R.layout.fragment_restaurant) {
 
             it.rvBanners.layoutManager =
                 LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+
+            it.rvShops.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            it.rvShops.adapter = shopAdapter
+
             it.rvBanners.adapter = bannerAdapter
             it.rvBanners.addOnScrollListener(object : RecyclerView.OnScrollListener() {
                 override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
@@ -111,7 +132,7 @@ class RestaurantFragment : Fragment(R.layout.fragment_restaurant) {
             addDots(it.dots, bannerAdapter.items.size, 0)
 
             filters.forEach { filter ->
-                it.chipGrouoFilter.addView(filter.toChip(requireContext()))
+                it.chipGroupFilter.addView(filter.toChip(requireContext()))
             }
         }
     }

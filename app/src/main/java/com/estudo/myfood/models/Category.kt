@@ -1,4 +1,4 @@
-package com.estudo.myfood
+package com.estudo.myfood.models
 
 data class Category(
     val id: Int,
