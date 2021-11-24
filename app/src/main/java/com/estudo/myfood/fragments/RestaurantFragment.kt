@@ -15,10 +15,12 @@ import com.estudo.myfood.R
 import com.estudo.myfood.databinding.FragmentRestaurantBinding
 import com.estudo.myfood.models.Banner
 import com.estudo.myfood.models.Category
+import com.estudo.myfood.models.MoreShop
 import com.estudo.myfood.models.Shop
 import com.estudo.myfood.toChip
 import com.estudo.myfood.views.BannerView
 import com.estudo.myfood.views.CategoryView
+import com.estudo.myfood.views.MoreShopView
 import com.estudo.myfood.views.ShopView
 
 class RestaurantFragment : Fragment(R.layout.fragment_restaurant) {
@@ -31,6 +33,7 @@ class RestaurantFragment : Fragment(R.layout.fragment_restaurant) {
     private val categoryAdapter = ATAdapter({ CategoryView(it) })
     private val bannerAdapter = ATAdapter({ BannerView(it) })
     private val shopAdapter = ATAdapter({ ShopView(it) })
+    private val moreShopAdapter = ATAdapter({ MoreShopView(it)})
 
     private var filters = arrayOf(
         FilterItem(0, "Ordernar", closeIcon = R.drawable.ic_baseline_keyboard_arrow_down_24),
@@ -107,6 +110,23 @@ class RestaurantFragment : Fragment(R.layout.fragment_restaurant) {
         Shop(5, "https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/Logo%20McDonald_MCDON_DRIV15.jpg", "MCdonalds")
         )
 
+        moreShopAdapter.items = arrayListOf(
+            MoreShop(1, "https://static-images.ifood.com.br/image/upload/t_high/logosgde/46ebd05c-116e-41cd-b3de-7a05c5bc730a/201811071958_30656.jp", "Pizza Crek", 4.4, "Pizza", 11.2, "60-70", 26.00),
+
+            MoreShop(2, "https://static-images.ifood.com.br/image/upload/t_high/logosgde/bb3ad636-7c36-4ae2-a1bd-14cd35695350/202001271029_rk15_i.png", "Fábrica de Esfiha", 4.3, "Esfiha", 12.2, "60-70", 9.00),
+
+            MoreShop(3, "https://static-images.ifood.com.br/image/upload/t_high/logosgde/2fd863ac-4cc2-476c-8896-99aedfdaeb5f/201911150948_Z9QG_i.jpg", "Pecorino", 4.9, "Grill", 17.2, "60-70", 10.00),
+
+            MoreShop(4, "https://static-images.ifood.com.br/image/upload/t_high/logosgde/86b58685-a7dc-4596-be26-2c4037b4d591/202006051304_JuRt_i.jpg", "Barbacoa Grill", 4.9, "Grill", 12.2, "70-90", 40.00),
+
+            MoreShop(5, "https://static-images.ifood.com.br/image/upload/t_high/logosgde/e2f3424a-06fb-46dd-89c3-f7b039e2b1f0_BOLOD_PPIN02.jpeg", "Bolo de Madre", 4.7, "Bolo", 11.0, "80-90", 30.00),
+
+            MoreShop(6, "https://static-images.ifood.com.br/image/upload/t_high/logosgde/201901021647_8066dc64-9383-46d1-aa2d-56b942e27ed.png", "Uau Esfiha", 4.4, "Esfiha", 11.2, "60-70", 8.00),
+
+            MoreShop(7, "https://static-images.ifood.com.br/image/upload/t_high/logosgde/201705131248_0ca51a98-ee95-48ac-b193-48066c8f20cc.png", "Bar do Juarez", 4.9, "Bar", 17.2, "40-50", 13.00)
+
+        )
+
         binding = FragmentRestaurantBinding.bind(view)
         binding?.let {
 
@@ -119,6 +139,9 @@ class RestaurantFragment : Fragment(R.layout.fragment_restaurant) {
 
             it.rvShops.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             it.rvShops.adapter = shopAdapter
+
+            it.rvMoreShops.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            it.rvMoreShops.adapter = moreShopAdapter
 
             it.rvBanners.adapter = bannerAdapter
             it.rvBanners.addOnScrollListener(object : RecyclerView.OnScrollListener() {
